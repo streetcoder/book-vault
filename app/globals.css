@@ -1,6 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 @import "tailwindcss";
-@import "tw-animate-css";
-@tailwind utilities;
+
+  :root {
+    --radius: 0.5rem;
+    --primary: #e7c9a5;
+    --primary-admin: #25388c; 
+    --dark-100: #16191E; 
+    --dark-300: #232839;
+    --light-100: #D6E0FF;
+    --dark-600: #333C5C;   
+    --light-300: #F8F8FF;   
+    --primary-admin: #25388c;  
+    --light-700: #E2E8F0;    
+  }
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-dark-100: var(--dark-100);
+  --color-dark-300: var(--dark-300);
+  --color-light-100: var(--light-100);  
+  --color-dark-600: var(--dark-600);
+  --color-light-300: var(--light-300);  
+  --color-primary-admin: var(--primary-admin);  
+  --color-light-700: var(--light-700);  
+  --bg-pattern: url("/images/pattern.webp");
+}
+
+
 
 @layer base {
   :root {
@@ -29,33 +56,41 @@
 
 @layer components {
   .form-btn {
-    @apply bg-primary text-dark-100 hover:bg-primary inline-flex min-h-14 w-full items-center justify-center rounded-md px-6 py-2 font-bold text-base !important;
+    @apply bg-primary !text-dark-100 hover:bg-primary inline-flex min-h-14 w-full items-center justify-center rounded-md px-6 py-2 font-bold text-base;
   }
 
   .form-input {
-    @apply w-full min-h-14 border-none text-base font-bold placeholder:font-normal text-white placeholder:text-light-100 focus-visible:ring-0 focus-visible:shadow-none bg-dark-300 !important;
+    @apply 
+      !w-full 
+      !min-h-14 
+      !border-none 
+      !text-base 
+      !font-bold 
+      !text-white 
+      focus-visible:!ring-0 
+      focus-visible:!shadow-none 
+      !bg-dark-300;
   }
-
   /* Book Card */
   .book-title {
-    @apply mt-2 line-clamp-1 text-base font-semibold text-white xs:text-xl;
+    @apply mt-2 line-clamp-1 text-base font-semibold text-white;
   }
 
   .book-genre {
-    @apply mt-1 line-clamp-1 text-sm italic text-light-100 xs:text-base;
+    @apply mt-1 line-clamp-1 text-sm italic text-light-100;
   }
 
   .book-loaned {
-    @apply flex flex-row items-center gap-1 max-xs:justify-center;
+    @apply flex flex-row items-center gap-1;
   }
 
   .book-btn {
-    @apply bg-dark-600 mt-3 min-h-14 w-full font-bebas-neue text-base text-primary;
+    @apply bg-dark-600 mt-3 min-h-14 w-full text-base text-primary;
   }
 
   /* Borrowed Book */
   .borrowed-book {
-    @apply gradient-vertical p-5 rounded-2xl xs:w-min w-full relative;
+    @apply p-5 rounded-2xl w-full relative;
   }
 
   .borrowed-book_cover {
@@ -76,16 +111,16 @@
   }
 
   .book-cover_regular {
-    @apply xs:w-[174px] w-[114px] xs:h-[239px] h-[169px];
+    @apply w-[114px] h-[169px];
   }
 
   .book-cover_wide {
-    @apply xs:w-[296px] w-[256px] xs:h-[404px] h-[354px];
+    @apply w-[256px] h-[354px];
   }
 
   /* Book List */
   .book-list {
-    @apply mt-10 flex flex-wrap gap-5 max-xs:justify-between xs:gap-10;
+    @apply mt-10 flex flex-wrap gap-5;
   }
 
   /* Book Overview */
@@ -118,7 +153,7 @@
   }
 
   .book-overview_btn {
-    @apply mt-4 min-h-14 w-fit bg-primary text-dark-100 hover:bg-primary/90 max-md:w-full !important;
+    @apply !mt-4 !min-h-14 !w-fit !bg-primary !text-dark-100 hover:!bg-primary/90 max-md:!w-full;
   }
 
   /* File Upload */
@@ -127,11 +162,11 @@
   }
 
   .upload-filename {
-    @apply mt-1 text-center text-xs;
+    @apply mt-1 text-center;
   }
 
   .progress {
-    @apply rounded-full bg-green-800 p-0.5 text-center font-bebas-neue text-[8px] font-bold leading-none text-light-100;
+    @apply rounded-full bg-green-800 p-0.5 text-center text-[8px] font-bold leading-none text-light-100;
   }
 
   /* Search */
@@ -140,12 +175,12 @@
   }
 
   .search-input {
-    @apply w-full border-none font-bold placeholder:font-normal text-white placeholder:text-light-100 focus-visible:ring-0 focus-visible:shadow-none !important;
+    @apply !w-full !border-none !font-bold placeholder:!font-normal !text-white placeholder:!text-light-100 focus-visible:!ring-0 focus-visible:!shadow-none;
   }
 
   /* Book Receipt */
   .book-receipt_admin-btn {
-    @apply bg-light-300 rounded-md text-primary-admin font-semibold hover:bg-light-300/80 !important;
+    @apply !bg-light-300 !rounded-md !text-primary-admin !font-semibold hover:!bg-light-300/80;
   }
 
   /* Book Ticket */
@@ -158,7 +193,7 @@
   }
 
   #book-ticket #book-details div p:first-child {
-    @apply text-xs text-light-700;
+    @apply text-light-700;
   }
 
   #book-ticket #book-details div p:last-child {
@@ -191,7 +226,7 @@
   }
 
   .not-found-btn {
-    @apply bg-primary font-bebas-neue min-w-[360px] mt-6 text-dark-100 text-xl hover:bg-primary/90 min-h-12 !important;
+    @apply !bg-primary !min-w-[360px] !mt-6 !text-dark-100 !text-xl hover:!bg-primary/90 !min-h-12;
   }
 
   /* Pagination */
@@ -200,11 +235,11 @@
   }
 
   .pagination-btn_light {
-    @apply bg-light-300 text-dark-300 hover:bg-light-300/70 !important;
+    @apply !bg-light-300 !text-dark-300 hover:!bg-light-300/70;
   }
 
   .pagination-btn_dark {
-    @apply bg-dark-300 hover:bg-dark-100 !important;
+    @apply !bg-dark-300 hover:!bg-dark-100;
   }
 
   #pagination p {
@@ -213,15 +248,15 @@
 
   /* Sort */
   .select-trigger {
-    @apply w-40 h-10 px-4 bg-dark-300 text-light-100 border-dark-100 !important;
+    @apply !w-40 !h-10 !px-4 !bg-dark-300 !text-light-100 !border-dark-100;
   }
 
   .select-content {
-    @apply bg-dark-300 text-light-100 border-dark-100 !important;
+    @apply !bg-dark-300 !text-light-100 !border-dark-100;
   }
 
   .select-item {
-    @apply focus:bg-dark-600 focus:text-light-100 !important;
+    @apply focus:!bg-dark-600 focus:!text-light-100;
   }
 }
 
@@ -244,11 +279,14 @@
   }
 
   .auth-form {
-    @apply my-auto flex h-full min-h-screen flex-1 items-center bg-pattern bg-cover bg-top bg-dark-100 px-5 py-10;
+    @apply my-auto flex h-full min-h-screen flex-1 items-center bg-cover bg-top bg-dark-100 px-5 py-10; 
+    background-image: var(--bg-pattern);
+    background-size: cover; 
+    background-position: top;
   }
 
   .auth-box {
-    @apply gradient-vertical mx-auto flex max-w-xl flex-col gap-6 rounded-lg p-10;
+    @apply mx-auto flex max-w-xl flex-col gap-6 rounded-lg p-10;
   }
 
   .auth-illustration {
@@ -257,7 +295,8 @@
 
   /* Root */
   .root-container {
-    @apply flex min-h-screen flex-1 flex-col bg-pattern bg-cover bg-top bg-dark-100 px-5 xs:px-10 md:px-16;
+    @apply flex min-h-screen flex-1 flex-col bg-cover bg-top bg-dark-100 px-5 md:px-16;
+    background-image: var(--bg-pattern);
   }
 
   /* Book Details */
@@ -279,8 +318,9 @@
   }
 
   .library-title {
-    @apply mt-2 text-3xl font-semibold text-white xs:text-5xl;
+    @apply mt-2 text-3xl font-semibold text-white;
   }
+  
 }
 
 @layer base {
