@@ -20,7 +20,7 @@ const Header = () => {
             href="/library"
             className={cn(
               "text-base cursor-pointer capitalize",
-              pathname === "/library" ? "text-light-200" : ""
+              pathname === "/library" ? "text-light-200" : "text-library-100"
             )}
           >
             Library
