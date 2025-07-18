@@ -6,7 +6,11 @@ const Home = () => {
   return (
     <>
       <BookOverview {...sampleBooks[0]} />
-      <BookList />
+      <BookList
+        title="Latest Books"
+        books={sampleBooks}
+        containerClassname="mt-28"
+      />
     </>
   );
 };

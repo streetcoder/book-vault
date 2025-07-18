@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-const BookOverview = ({  
+import { Button } from "./ui/button";
+
+import BookCover from "@/components/BookCover";
+
+const BookOverview = ({
   title,
   author,
   genre,
@@ -10,9 +14,9 @@ const BookOverview = ({
   description,
   color,
   cover,
-} : Book) => {
+}: Book) => {
   return (
-      <section className="book-overview">
+    <section className="book-overview">
       <div className="flex flex-1 flex-col gap-5">
         <h1>{title}</h1>
 
@@ -44,10 +48,27 @@ const BookOverview = ({
 
         <p className="book-description">{description}</p>
 
+        <Button className="book-overview_btn">
+          <Image src="/icons/book.svg" alt="book" width={20} height={20} />
+          <p className="text-xl text-dark-100"> Borrow Book</p>
+        </Button>
+      </div>
+      <div className="relative flex flex-1 justify-center">
+        <div className="relative">
+          <BookCover
+            variant="wide"
+            className="z-10"
+            coverColor={color}
+            coverImage={cover}
+          />
 
+          <div className="absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden">
+            <BookCover variant="wide" coverColor={color} coverImage={cover} />
+          </div>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default BookOverview
+export default BookOverview;
